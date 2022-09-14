@@ -4,8 +4,7 @@ const morgan = require('morgan')
 const pack = require('./package.json')
 const app = express()
 
-const data = require('./data')
-console.log(data)
+
 
 app.set('Server','Servidor')
 app.set('port',process.env.PORT || 4000)
