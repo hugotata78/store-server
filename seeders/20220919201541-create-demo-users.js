@@ -1,24 +1,29 @@
 'use strict';
+require('dotenv').config()
+const bcrypt = require('bcryptjs')
+const password = process.env.USER_PASSWORD
+const email = process.env.ADMIN_EMAIL
 
 module.exports = {
   async up (queryInterface, Sequelize) {
-    /**
-     * Add seed commands here.
-     *
-     * Example:
-     * await queryInterface.bulkInsert('People', [{
-     *   name: 'John Doe',
-     *   isBetaMember: false
-     * }], {});
-    */
+    await queryInterface.bulkInsert('Users', [{
+      username: 'adminuser',
+      email: email,
+      password: bcrypt.hashSync(password, 10),
+      createdAt: new Date(),
+      updatedAt: new Date()
+  },
+  {
+    username: 'regularuser',
+    email: 'regularuser@mail.com',
+    password: bcrypt.hashSync(password, 10),
+    createdAt: new Date(),
+    updatedAt: new Date()
+}
+], {});
   },
 
   async down (queryInterface, Sequelize) {
-    /**
-     * Add commands to revert seed here.
-     *
-     * Example:
-     * await queryInterface.bulkDelete('People', null, {});
-     */
+    await queryInterface.bulkDelete('Users', null, {});
   }
 };
