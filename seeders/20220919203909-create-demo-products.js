@@ -29,7 +29,7 @@ module.exports = {
     {
       brand: 'Nike',
       price: 225000,
-      description:'Nike LD Waffle Sacai White Nylon',
+      description:'Nike Air Force 1 Low Supreme Black',
       category_id:4,
       createdAt: new Date(),
       updatedAt: new Date()
