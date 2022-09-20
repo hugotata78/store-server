@@ -92,7 +92,7 @@ module.exports = {
                     return res.status(400).json({ msg: `The user with the id ${userId} already has the role ${role.name}` })
                 }
                 role.addUser(user)
-                res.status(201).json({ msg: `The role with id was added ${id} to user user with id ${userId}` })
+                res.status(201).json({ msg: `The role with id was ${id} added to user user with id ${userId}` })
             }
         } catch (error) {
             res.status(500).json({ error })
@@ -113,21 +113,13 @@ module.exports = {
             if (!role) {
                 return res.status(404).json({ msg: 'Role not found!' })
             } else {
-                const user = await User.findOne({
-                    where: {
-                        id: userId
-                    }
-                })
-                if (!user) {
-                    return res.status(404).json({ msg: 'User not found!' })
-                }
-                const findUserId = role.users.find(u => u.id == user.id)
+                const findUserId = role.users.find(u => u.id == userId)
                 if (!findUserId) {
-                    return res.status(400).json({ msg: `The user with the id ${user.id} does not have the role you want to delete!` })
+                    return res.status(400).json({ msg: `The user with the id ${userId} does not have the role you want to delete!` })
                 }
-                const users = role.users.filter(u => u.id !== user.id)
+                const users = role.users.filter(u => u.id != userId)
                 role.setUsers(users)
-                res.status(200).json({ msg: `The role was removed ${role.name} from the user with the id ${user.id}` })
+                res.status(200).json({ msg: `The role was removed ${role.name} from the user with the id ${userId}` })
             }
         } catch (error) {
             res.status(500).json({ error })
