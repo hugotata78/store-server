@@ -62,7 +62,8 @@ module.exports = {
                 },
                 include: {
                     model: Product,
-                    as: 'products'
+                    as: 'products',
+                    attributes:['brand','price','description','poster']
                 },
                 attributes: ['username', 'email'],
             })

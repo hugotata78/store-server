@@ -10,15 +10,18 @@ module.exports = {
       },
       brand: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: false,
       },
       price: {
         type: Sequelize.FLOAT,
-        allowNull: false
+        allowNull: false,
       },
       description: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: false,
+      },
+      poster: {
+        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,

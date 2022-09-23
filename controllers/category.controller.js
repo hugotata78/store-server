@@ -33,11 +33,12 @@ module.exports = {
                 },
                 include: {
                     model: Product,
-                    as: 'products'
+                    as: 'products',
+                    attributes:['brand','price','description','poster']
                 },
                 attributes: ['name', 'description']
             })
-            if (!category) res.status(404).json({ msg: 'Category not found!' })
+            if (!category) return res.status(404).json({ msg: 'Category not found!' })
             res.status(200).json({ category })
         } catch (error) {
             res.status(500).json({ error })
