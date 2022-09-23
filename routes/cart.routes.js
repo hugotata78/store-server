@@ -3,7 +3,8 @@ const { addProductToCart, removeProductFromCart } = require('../controllers/user
 const { Auth } = require('../middlewares')
 const router = Router()
 
-router.post('/:id/:productId', Auth, addProductToCart)
-router.delete('/:id/:productId', Auth, removeProductFromCart)
+router.use(Auth)
+router.post('/:id/:productId', addProductToCart)
+router.delete('/:id/:productId', removeProductFromCart)
 
 module.exports = router

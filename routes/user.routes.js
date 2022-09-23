@@ -1,9 +1,10 @@
 const { Router } = require('express')
 const { getUsers, getUser, updateUser, deleteUser } = require('../controllers/user.controller')
-const { Auth } = require('../middlewares')
+const { Auth, isAdmin } = require('../middlewares')
 const router = Router()
 
 router.use(Auth)
+router.use(isAdmin)
 router.get('/', getUsers)
 router.get('/:id', getUser)
 router.put('/:id', updateUser)
