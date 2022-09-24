@@ -111,7 +111,7 @@ module.exports = {
                 }
             })
             if (!response) return res.status(404).json({ msg: 'User not found!', response: response })
-            res.status(200).json({ msg: 'Data updated successfully', response: response })
+            res.status(200).json({ msg: 'Data deleted successfully', response: response })
         } catch (error) {
             res.status(500).json({ error })
         }
