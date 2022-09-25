@@ -20,7 +20,7 @@ const categoryValidator = [
     check('description')
         .not()
         .isEmpty()
-        .withMessage('The name field is required!'),
+        .withMessage('The description field is required!'),
     (req,res,next)=>{
         validateResult(req, res, next)
     }

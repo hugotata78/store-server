@@ -6,7 +6,18 @@ module.exports = {
         try {
             const { description, product_id } = req.body
             const image = uploadImage(req,res)
-            if(!image) return res.status(500).json({msg:'The image field is required!'})
+            if(!image) return res.status(500).json(
+                {
+                    "errors": [
+                        {
+                            "value": "",
+                            "msg": "The image field is required!",
+                            "param": "image",
+                            "location": "body"
+                        }
+                    ]
+                }
+            )
             const img = await Image.create({
                 image,
                 description,
