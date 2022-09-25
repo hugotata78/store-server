@@ -1,9 +1,10 @@
 const { Router } = require('express')
 const { createCategory, getCategories, getCategory, updateCategory, deleteCategory, addProductToCategory, removeProductFromCategory } = require('../controllers/category.controller')
 const { Auth, isAdmin } = require('../middlewares')
+const { categoryValidator } = require('../validators')
 const router = Router()
 
-router.post('/', Auth, isAdmin, createCategory)
+router.post('/', Auth, isAdmin, categoryValidator, createCategory)
 router.get('/', getCategories)
 router.get('/:id', getCategory)
 router.put('/:id', Auth, isAdmin, updateCategory)
