@@ -46,7 +46,7 @@ module.exports = {
     async getUsers(req, res) {
         try {
             const users = await User.findAll({
-                attributes: ['username', 'email']
+                attributes: { exclude: ['password'] }
             })
             res.status(200).json({ users })
         } catch (error) {
@@ -60,7 +60,7 @@ module.exports = {
                 where: {
                     id: id
                 },
-                attributes: ['username', 'email'],
+                attributes: { exclude: ['password'] }
             })
 
             if (!user) return res.status(404).json({ msg: 'User not found!' })
@@ -69,23 +69,22 @@ module.exports = {
             res.status(500).json({ error })
         }
     },
-    async findMe(req,res){
+    async findMe(req, res) {
         try {
             const { id } = req.params
             const user = await User.findOne({
-                where:{
-                    id:id
+                where: {
+                    id: id
                 },
                 include: {
                     model: Product,
                     as: 'products',
-                    attributes:['brand','price','description','poster']
                 },
             })
-            if(!user) return res.status(404).json({msg:'User not found'})
-            res.status(200).json({user})
+            if (!user) return res.status(404).json({ msg: 'User not found' })
+            res.status(200).json({ user })
         } catch (error) {
-            
+
         }
     },
     async updateUser(req, res) {
@@ -138,7 +137,7 @@ module.exports = {
             const findProductId = user.products.find(p => p.id == productId)
             if (findProductId) return res.status(400).json({ msg: `The Product with the id ${productId} already added to your cart` })
             user.addProduct(product)
-            res.status(200).json({msg:`The product with the id ${productId} was added to your cart`})
+            res.status(200).json({ msg: `The product with the id ${productId} was added to your cart` })
         } catch (error) {
             res.status(500).json({ error })
         }
@@ -158,9 +157,9 @@ module.exports = {
             if (!user) return res.status(404).json({ msg: 'User not found!' })
             const findProductId = user.products.find(p => p.id == productId)
             if (!findProductId) return res.status(400).json({ msg: 'The product you want to remove from the cart has not been found' })
-            const products = user.products.filter(p=>p.id != productId)
+            const products = user.products.filter(p => p.id != productId)
             user.setProducts(products)
-            res.status(200).json({msg:`The product with the id ${productId} has been removed from the cart`})
+            res.status(200).json({ msg: `The product with the id ${productId} has been removed from the cart` })
         } catch (error) {
             res.status(500).json({ error })
         }

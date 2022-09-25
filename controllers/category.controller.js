@@ -15,9 +15,7 @@ module.exports = {
     },
     async getCategories(req, res) {
         try {
-            const categories = await Category.findAll({
-                attributes: ['name']
-            })
+            const categories = await Category.findAll()
             res.status(200).json({ categories })
         } catch (error) {
             res.status(500).json({ error })
@@ -34,9 +32,7 @@ module.exports = {
                 include: {
                     model: Product,
                     as: 'products',
-                    attributes:['brand','price','description','poster']
                 },
-                attributes: ['name', 'description']
             })
             if (!category) return res.status(404).json({ msg: 'Category not found!' })
             res.status(200).json({ category })

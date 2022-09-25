@@ -18,9 +18,7 @@ module.exports = {
     },
     async getProducts(req, res) {
         try {
-            const products = await Product.findAll({
-                attributes: ['brand', 'price', 'description','poster']
-            })
+            const products = await Product.findAll()
             res.status(200).json({ products })
         } catch (error) {
             res.status(500).json({ error })
@@ -36,9 +34,7 @@ module.exports = {
                 include: {
                     model: Image,
                     as: 'images',
-                    attributes: ['image']
                 },
-                attributes: ['brand', 'price', 'description','poster']
             })
             if (!product) return res.status(404).json({ msg: 'Product not found!' })
             res.status(200).json({ product })

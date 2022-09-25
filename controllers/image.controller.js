@@ -16,9 +16,7 @@ module.exports = {
     },
     async getImages(req, res) {
         try {
-            const images = await Image.findAll({
-                attributes: ['image', 'description']
-            })
+            const images = await Image.findAll()
             res.status(200).json({ images })
         } catch (error) {
             res.status(500).json({ error })
@@ -31,7 +29,6 @@ module.exports = {
                 where: {
                     id: id
                 },
-                attributes: ['image', 'description']
             })
             if (!image) return res.status(404).json({ msg: 'Image not found!' })
             res.status(200).json({ image })
