@@ -3,7 +3,6 @@ const { Buffer } = require('buffer')
 
 const uploadImage = (req,res) => {
     let image
-    console.log(req.body)
     if (req.file || req.body.image ) {
         if(req.file){
             fs.renameSync(req.file.path, req.file.path + '.' + req.file.mimetype.split('/')[1])
