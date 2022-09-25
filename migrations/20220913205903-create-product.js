@@ -20,7 +20,7 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      poster: {
+      image: {
         type: Sequelize.STRING
       },
       createdAt: {

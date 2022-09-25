@@ -1,9 +1,11 @@
 const { Router } = require('express')
 const { createProduct, getProducts, getProduct, updateProduct, deleteProduct, addImageToProduct, removeImageFromProduct } = require('../controllers/product.controller')
 const { Auth, isAdmin } = require('../middlewares')
+const multer = require('multer')
+const upload = multer({ dest: 'public/image'})
 const router = Router()
 
-router.post('/', Auth, isAdmin, createProduct)
+router.post('/', Auth, isAdmin, upload.single('image'), createProduct)
 router.get('/', getProducts)
 router.get('/:id', getProduct)
 router.put('/:id', Auth, isAdmin, updateProduct)

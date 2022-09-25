@@ -1,9 +1,12 @@
 const { Image } = require('../models')
+const { uploadImage } = require('../helpers/uploadImage')
 
 module.exports = {
     async createImage(req, res) {
         try {
-            const { image, description, product_id } = req.body
+            const { description, product_id } = req.body
+            const image = uploadImage(req,res)
+            if(!image) return res.status(500).json({msg:'The image field is required!'})
             const img = await Image.create({
                 image,
                 description,
