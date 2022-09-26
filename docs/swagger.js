@@ -10,7 +10,6 @@ const swaggerDefinition = {
             description: 'API Documentation Store',
             version: '1.0.0',
         },
-
         servers: [
             {
                 url: `http://localhost:${process.env.PORT || 4000}`,
