@@ -1,4 +1,6 @@
 const { Router } = require('express')
+const swaggerUi = require('swagger-ui-express');
+const swagger = require('../docs/swagger')
 const authRoutes = require('./auth.routes')
 const cartRoutes = require('./cart.routes')
 const categoryRoutes = require('./category.routes')
@@ -15,5 +17,6 @@ router.use('/images',imageRoutes)
 router.use('/products', productRoutes)
 router.use('/roles', roleRoutes)
 router.use('/users', userRoutes)
+router.use('/docs',swaggerUi.serve,swaggerUi.setup(swagger))
 
 module.exports = router
