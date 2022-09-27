@@ -27,7 +27,7 @@
  *  post:
  *    security:
  *        - bearerAuth: []
- *    summary: create new rele
+ *    summary: create new role
  *    tags: [Role]
  *    requestBody:
  *      required: true
@@ -124,7 +124,7 @@
  *             type: object
  *             $ref: '#/components/schemas/Role'
  *     responses:
- *       205:
+ *       200:
  *         description: Ok
  *       400:
  *          description: Bad request 
@@ -156,7 +156,7 @@
  *         required: true
  *         description: the role id
  *     responses:
- *       205:
+ *       200:
  *         description: Ok
  *       400:
  *         description: Bad request 

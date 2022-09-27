@@ -88,7 +88,7 @@ module.exports = {
             })
             if(!product) return res.status(404).json({msg:'Product not found!'})
             const findProductId = category.products.find(p=>p.id == productId)
-            if(findProductId) return res.status(400).json({msg:`The product with the id ${productId} is added to the category ${category.name}!`})
+            if(findProductId) return res.status(400).json({msg:`The product with the id ${productId} is already added to the category ${category.name}!`})
             category.addProduct(product)
             res.status(200).json({msg:`The product with the id ${productId} was added to the category ${category.name}`})
         } catch (error) {
