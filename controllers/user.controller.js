@@ -127,7 +127,6 @@ module.exports = {
                     as: 'products'
                 }
             })
-            if (!user) return res.status(404).json({ msg: 'User not found!' })
             const product = await Product.findOne({
                 where: {
                     id: productId
@@ -154,7 +153,6 @@ module.exports = {
                     as: 'products'
                 }
             })
-            if (!user) return res.status(404).json({ msg: 'User not found!' })
             const findProductId = user.products.find(p => p.id == productId)
             if (!findProductId) return res.status(400).json({ msg: 'The product you want to remove from the cart has not been found' })
             const products = user.products.filter(p => p.id != productId)
