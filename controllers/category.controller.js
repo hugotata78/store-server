@@ -34,7 +34,7 @@ module.exports = {
                     as: 'products',
                 },
             })
-            if (!category) return res.status(404).json({ msg: 'Category not found!' })
+            if (!category) return res.status(404).json({ msg: 'Category not found!',response:category })
             res.status(200).json({ category })
         } catch (error) {
             res.status(500).json({ error })
