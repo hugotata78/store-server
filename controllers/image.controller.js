@@ -44,7 +44,7 @@ module.exports = {
                     id: id
                 },
             })
-            if (!image) return res.status(404).json({ msg: 'Image not found!' })
+            if (!image) return res.status(404).json({ msg: 'Image not found!',response:image })
             res.status(200).json({ image })
         } catch (error) {
             res.status(500).json({ error })
