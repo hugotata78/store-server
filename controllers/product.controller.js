@@ -54,7 +54,7 @@ module.exports = {
                     as: 'images',
                 },
             })
-            if (!product) return res.status(404).json({ msg: 'Product not found!' })
+            if (!product) return res.status(404).json({ msg: 'Product not found!', response:product })
             res.status(200).json({ product })
         } catch (error) {
             res.status(500).json({ error })

@@ -48,7 +48,9 @@
  *            $ref: '#/components/schemas/Product'
  *    responses: 
  *      201: 
- *        description: Ok 
+ *        description: Ok
+ *      400:
+ *        description: Bad request  
  *      401:
  *        description: Unauthorized
  *      403:
@@ -84,6 +86,8 @@
  *              schemma:
  *                 type: array
  *                 $ref: '#/components/schemas/Product'
+ *       400:
+ *          description: Bad request 
  *       500:
  *          description: Internal server error
  */    
@@ -328,7 +332,7 @@
  *          content:
  *             application/json:
  *              schemma:
- *                 type: object
+ *                 type: array
  *                 $ref: '#/components/schemas/Product'
  *       400:
  *         description: Bad request 
