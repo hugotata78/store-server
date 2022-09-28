@@ -90,7 +90,11 @@
  *                 type: object
  *                 $ref: '#/components/schemas/User'
  *       400:
- *         description: Bad request 
+ *         description: Bad request
+ *       401:
+ *         description: Unauthorized
+ *       403:
+ *         description: Forbidden 
  *       404:
  *         description: Not found / user not found
  *       500:
