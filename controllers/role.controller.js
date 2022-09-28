@@ -29,7 +29,7 @@ module.exports = {
                     id:id
                 }
             })
-            if(!role) return res.status(404).json({ msg:'Role not found!', data:role})
+            if(!role) return res.status(404).json({ msg:'Role not found!', response:role})
             res.status(200).json({ role })
         } catch (error) {
             res.status(500).json({ error })

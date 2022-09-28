@@ -39,6 +39,12 @@
  *    responses: 
  *      201: 
  *        description: Ok
+ *      400:
+ *        description: Bad request 
+ *      401:
+ *        description: Unauthorized
+ *      403:
+ *        description: Forbidden
  *      500: 
  *        description: Internal Server Error     
  */
@@ -62,6 +68,12 @@
  *              schemma:
  *                 type: array
  *                 $ref: '#/components/schemas/Role'
+ *       400:
+ *          description: Bad request 
+ *       401:
+ *          description: Unauthorized
+ *       403:
+ *          description: Forbidden
  *       500:
  *          description: Internal server error
  */ 
@@ -92,7 +104,11 @@
  *                 type: object
  *                 $ref: '#/components/schemas/Role'
  *       400:
- *         description: Bad request 
+ *         description: Bad request
+ *       401:
+ *         description: Unauthorized
+ *       403:
+ *         description: Forbidden 
  *       404:
  *         description: Not found
  *       500:
