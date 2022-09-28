@@ -43,8 +43,14 @@
  *              schemma:
  *                 type: array
  *                 $ref: '#/components/schemas/User'
+ *       400:
+ *         description: Bad request
+ *       401:
+ *         description: Unauthorized
+ *       403:
+ *         description: Forbidden
  *       500:
- *          description: Internal server error
+ *         description: Internal server error
  */ 
 
 //Get User by id
@@ -73,7 +79,11 @@
  *                 type: object
  *                 $ref: '#/components/schemas/User'
  *       400:
- *         description: Bad request 
+ *         description: Bad request
+ *       401:
+ *         description: Unauthorized
+ *       403:
+ *         description: Forbidden 
  *       404:
  *         description: Not found / user not found
  *       500:

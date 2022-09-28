@@ -81,7 +81,7 @@ module.exports = {
                     as: 'products',
                 },
             })
-            if (!user) return res.status(404).json({ msg: 'User not found' })
+            if (!user) return res.status(404).json({ msg: 'User not found',response:user })
             res.status(200).json({ user })
         } catch (error) {
 
