@@ -39,6 +39,12 @@
  *    responses: 
  *      201: 
  *        description: Ok
+ *      400:
+ *        description: Bad request 
+ *      401:
+ *        description: Unauthorized
+ *      403:
+ *        description: Forbidden
  *      500: 
  *        description: Internal Server Error     
  */
@@ -50,8 +56,6 @@
  * @swagger
  * /api/categories:
  *  get:
- *     security:
- *        - bearerAuth: []
  *     summary: Return all categories
  *     tags: [Category]
  *     responses:
@@ -62,6 +66,8 @@
  *              schemma:
  *                 type: array
  *                 $ref: '#/components/schemas/Category'
+ *       400:
+ *         description: Bad request
  *       500:
  *          description: Internal server error
  */ 
@@ -72,8 +78,6 @@
  * @swagger
  * /api/categories/{id}:
  *  get:
- *     security:
- *        - bearerAuth: []
  *     summary: Return a category
  *     tags: [Category]
  *     parameters:
