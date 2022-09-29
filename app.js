@@ -16,7 +16,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use('/api',indexRoutes)
 
-
+console.log(process.env.HOST)
 app.get('/',(req,res)=>{
     res.json({
         nombre:pack.name,
