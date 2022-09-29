@@ -1,6 +1,6 @@
 const express = require('express')
 const cors = require('cors')
-const morgan = require('morgan')
+//const morgan = require('morgan')
 const pack = require('./package.json')
 const indexRoutes = require('./routes')
 const app = express()
