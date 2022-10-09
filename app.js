@@ -10,6 +10,8 @@ const app = express()
 app.set('Server','Servidor')
 app.set('port',process.env.PORT || 4000)
 
+console.log(process.env.DB_HOST)
+
 // app.use(cors({
 //     origin:`${process.env.HOST}:${app.get('port')}`
 // }))
