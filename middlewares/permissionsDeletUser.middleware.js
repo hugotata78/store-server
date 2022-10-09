@@ -3,7 +3,6 @@ module.exports = {
         const { id } = req.params
         const isAdmin = req.user.roles.find(r=>r.id == 1)
         if(req.user.id == id || isAdmin){
-            console.log(req.user.roles)
             next()
 
         }else{

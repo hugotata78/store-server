@@ -58,7 +58,7 @@ module.exports = {
                     id: id
                 }
             })
-            console.log(response)
+            
             if (!response[0]) return res.status(404).json({ msg: 'Image not found!', response: response[0] })
             res.status(200).json({ msg: 'Data updated successfully!', response: response[0] })
         } catch (error) {

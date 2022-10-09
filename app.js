@@ -25,8 +25,6 @@ app.use((req, res, next) => {
     next();
 });
 
-
-console.log(process.env.HOST)
 app.get('/',(req,res)=>{
     res.json({
         nombre:pack.name,
