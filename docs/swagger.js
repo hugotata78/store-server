@@ -11,7 +11,7 @@ const swaggerDefinition = {
         version: '1.0.0',
     },
     host: `${process.env.HOST}:${process.env.PORT || 4000}`,
-    basePath: '/v1/',
+    basePath: '/api/',
     schemes: [process.env.SCHEMES],
     consumes: ["application/json"],
     produces: ["application/json"],
