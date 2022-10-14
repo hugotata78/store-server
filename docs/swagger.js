@@ -3,32 +3,32 @@ require('dotenv').config()
 
 
 const swaggerDefinition = {
-    
-        openapi: '3.0.2',
-        info: {
-            title: 'Store API',
-            description: 'API Documentation Store',
-            version: '1.0.0',
-        },
-        servers: [
-            {
-                url: `${process.env.HOST}:${process.env.PORT || 4000}`,
+
+    openapi: '3.0.2',
+    info: {
+        title: 'Store API',
+        description: 'API Documentation Store',
+        version: '1.0.0',
+    },
+    host: `${process.env.HOST}:${process.env.PORT || 4000}`,
+    basePath: '/v1/',
+    schemes: [process.env.SCHEMES],
+    consumes: ["application/json"],
+    produces: ["application/json"],
+    components: {
+        securitySchemes: {
+            bearerAuth: {
+                type: process.env.SCHEMES,
+                scheme: "bearer",
             },
-        ],
-        components: {
-            securitySchemes: {
-                bearerAuth: {
-                    type: 'http',
-                    scheme: "bearer",
-                },
-            },     	
         },
-      
+    },
+
 };
 
 const swaggerOptions = {
-	swaggerDefinition,
-	apis: ['./routes/*.js'],
-}; 
+    swaggerDefinition,
+    apis: ['./routes/*.js'],
+};
 
 module.exports = swaggerJSDoc(swaggerOptions);
