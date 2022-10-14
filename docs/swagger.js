@@ -18,7 +18,7 @@ const swaggerDefinition = {
     components: {
         securitySchemes: {
             bearerAuth: {
-                type: process.env.SCHEMES,
+                type: 'http' || 'https',
                 scheme: "bearer",
             },
         },
